@@ -2,6 +2,7 @@
 
 import sys
 import csv
+import queue
 from multiprocessing import Process, Queue
 
 class Args(object):
