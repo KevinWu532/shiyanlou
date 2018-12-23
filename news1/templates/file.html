@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1> {{ content.title }}</h1>
+    <h4> {{ content.created_time }} {{ content.category.name }}</h4>
+{% endblock %}
+
+{% block content %}
+    <p> {{ content.content }}</p>
+{% endblock %}
