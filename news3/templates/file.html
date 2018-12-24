@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% macro tag(tags) %}
+    {% for x in tags %}
+        {{ x }} 
+    {% endfor %}
+{% endmacro %}
+
+{% block header %}
+    <h1> {{ content.title }}</h1>
+    <h4> Time:{{ content.created_time }} Category:{{ content.category.name }} Tags:{{ tag(content.tags) }}</h4>
+{% endblock %}
+
+{% block content %}
+    <p> {{ content.content }}</p>
+{% endblock %}
