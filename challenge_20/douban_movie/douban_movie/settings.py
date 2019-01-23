@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'douban_movie.spiders'
 #USER_AGENT = 'douban_movie (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -54,8 +54,10 @@ COOKIES_ENABLED = False
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     'douban_movie.middlewares.MyCustomDownloaderMiddleware': None,
-    'douban_movie.middlewares.UserAgentMiddleware': 543
+    'douban_movie.middlewares.UserAgentMiddleware': 543,
+    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware':None,
 }
+
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
@@ -65,9 +67,9 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'douban_movie.pipelines.DoubanMoviePipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'douban_movie.pipelines.DoubanMoviePipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
